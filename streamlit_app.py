@@ -214,7 +214,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Main content
-st.markdown('<title">IqroAI</title>', unsafe_allow_html=True)
+st.markdown('<title>IqroAI</title>', unsafe_allow_html=True)
 
 st.markdown("""
 <p class="description">
