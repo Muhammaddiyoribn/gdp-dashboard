@@ -157,66 +157,128 @@ import streamlit as st
 st.set_page_config(
     page_title="IqroAI - New Version",
     page_icon="🚀",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for better styling
+# Custom CSS for better styling and 16:9 aspect ratio
 st.markdown("""
 <style>
-    .main-container {
+    .main {
+        padding: 0;
+    }
+    
+    .block-container {
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    .fullscreen-container {
+        width: 100vw;
+        height: 100vh;
+        aspect-ratio: 16/9;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 60vh;
         text-align: center;
         padding: 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .content-wrapper {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 90%;
+        backdrop-filter: blur(10px);
     }
     
     .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: bold;
         color: #1f77b4;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
     
     .message {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: #333;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         line-height: 1.6;
     }
     
     .link-button {
-        background-color: #1f77b4;
+        background: linear-gradient(45deg, #1f77b4, #1565c0);
         color: white;
-        padding: 12px 24px;
+        padding: 15px 35px;
         text-decoration: none;
-        border-radius: 8px;
-        font-size: 1.1rem;
+        border-radius: 50px;
+        font-size: 1.2rem;
         font-weight: bold;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
         display: inline-block;
         margin: 1rem 0;
+        box-shadow: 0 8px 20px rgba(31, 119, 180, 0.3);
+        transform: translateY(0);
     }
     
     .link-button:hover {
-        background-color: #1565c0;
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
         text-decoration: none;
         color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(31, 119, 180, 0.4);
     }
     
     .footer {
-        margin-top: 3rem;
+        margin-top: 2rem;
         color: #666;
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+    
+    /* Hide Streamlit elements */
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+    
+    .stApp > footer {
+        display: none;
+    }
+    
+    .stDeployButton {
+        display: none;
+    }
+    
+    #MainMenu {
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .title {
+            font-size: 2.2rem;
+        }
+        
+        .message {
+            font-size: 1.1rem;
+        }
+        
+        .content-wrapper {
+            padding: 2rem 1.5rem;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Main content
-st.markdown('<div class="main-container">', unsafe_allow_html=True)
+# Main content with 16:9 ratio
+st.markdown('<div class="fullscreen-container">', unsafe_allow_html=True)
+st.markdown('<div class="content-wrapper">', unsafe_allow_html=True)
 
 # Title
 st.markdown('<h1 class="title">🚀 IqroAI New Version</h1>', unsafe_allow_html=True)
@@ -241,12 +303,14 @@ st.markdown('''
 st.markdown("---")
 st.markdown("### Or click the button below:")
 
-if st.button("🌐 Go to IqroAI", type="primary", use_container_width=True):
-    st.markdown('''
-    <script>
-        window.open('https://iqroai-web-wd5a2.ondigitalocean.app/', '_blank');
-    </script>
-    ''', unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("🌐 Go to IqroAI", type="primary", use_container_width=True):
+        st.markdown('''
+        <script>
+            window.open('https://iqroai-web-wd5a2.ondigitalocean.app/', '_blank');
+        </script>
+        ''', unsafe_allow_html=True)
 
 # Footer
 st.markdown('''
@@ -255,7 +319,11 @@ st.markdown('''
 </div>
 ''', unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)  # Close content-wrapper
+st.markdown('</div>', unsafe_allow_html=True)  # Close fullscreen-container
+
+# Add some spacing
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 # Add some spacing
 st.markdown("<br><br>", unsafe_allow_html=True)
