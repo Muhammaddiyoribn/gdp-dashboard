@@ -244,6 +244,3 @@ st.markdown("""
     <p>Thank you for using IqroAI</p>
 </div>
 """, unsafe_allow_html=True)
-    <p>Thank you for using IqroAI</p>
-</div>
-""", unsafe_allow_html=True)
