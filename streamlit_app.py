@@ -149,6 +149,7 @@
 #             delta=growth,
 #             delta_color=delta_color
 #         )
+
 import streamlit as st
 
 # Page configuration
@@ -185,18 +186,20 @@ st.markdown("""
     .custom-link {
         display: inline-block;
         padding: 12px 30px;
-        background-color: #3498db;
-        color: white;
+        background-color: white;
+        color: #2c3e50;
         text-decoration: none;
+        border: 2px solid #bdc3c7;
         border-radius: 5px;
         font-weight: 500;
-        transition: background-color 0.3s;
+        transition: all 0.3s;
     }
     
     .custom-link:hover {
-        background-color: #2980b9;
+        background-color: #f8f9fa;
+        border-color: #95a5a6;
         text-decoration: none;
-        color: white;
+        color: #2c3e50;
     }
     
     .footer {
