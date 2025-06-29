@@ -165,7 +165,7 @@ st.markdown("""
     .main-header {
         text-align: center;
         color: #2c3e50;
-        font-size: 2.5rem;
+        font-size: 4rem;
         font-weight: 300;
         margin-bottom: 2rem;
     }
@@ -214,7 +214,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Main content
-st.markdown('<title>IqroAI</title>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header">IqroAI</h1>', unsafe_allow_html=True)
 
 st.markdown("""
 <p class="description">
@@ -241,6 +241,9 @@ Experience the enhanced features and improved interface of IqroAI's latest updat
 # Footer
 st.markdown("""
 <div class="footer">
+    <p>Thank you for using IqroAI</p>
+</div>
+""", unsafe_allow_html=True)
     <p>Thank you for using IqroAI</p>
 </div>
 """, unsafe_allow_html=True)
