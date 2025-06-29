@@ -152,178 +152,141 @@
 
 
 import streamlit as st
+import webbrowser
 
-# Page configuration
+# Sahifa konfiguratsiyasi
 st.set_page_config(
-    page_title="IqroAI - New Version",
+    page_title="IqroAI Yangi Versiya",
     page_icon="🚀",
-    layout="wide",
-    initial_sidebar_state="collapsed"
+    layout="centered"
 )
 
-# Custom CSS for better styling and 16:9 aspect ratio
+# CSS stillar
 st.markdown("""
 <style>
-    .main {
-        padding: 0;
-    }
-    
-    .block-container {
-        padding: 0;
-        max-width: 100%;
-    }
-    
-    .fullscreen-container {
-        width: 100vw;
-        height: 100vh;
-        aspect-ratio: 16/9;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .main-container {
         text-align: center;
         padding: 2rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        margin: 0;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .content-wrapper {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 3rem 2rem;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        max-width: 600px;
-        width: 90%;
-        backdrop-filter: blur(10px);
     }
     
     .title {
+        color: #1e3a8a;
         font-size: 3rem;
         font-weight: bold;
-        color: #1f77b4;
-        margin-bottom: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
     }
     
-    .message {
-        font-size: 1.3rem;
-        color: #333;
-        margin-bottom: 2.5rem;
+    .subtitle {
+        color: #475569;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .description {
+        color: #64748b;
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
         line-height: 1.6;
     }
     
     .link-button {
-        background: linear-gradient(45deg, #1f77b4, #1565c0);
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
         color: white;
-        padding: 15px 35px;
+        padding: 1rem 2rem;
+        border-radius: 12px;
         text-decoration: none;
-        border-radius: 50px;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: bold;
-        transition: all 0.3s ease;
         display: inline-block;
-        margin: 1rem 0;
-        box-shadow: 0 8px 20px rgba(31, 119, 180, 0.3);
-        transform: translateY(0);
+        transition: all 0.3s ease;
+        margin: 1rem;
     }
     
     .link-button:hover {
-        background: linear-gradient(45deg, #1565c0, #0d47a1);
-        text-decoration: none;
-        color: white;
+        background: linear-gradient(135deg, #2563eb, #1e40af);
         transform: translateY(-2px);
-        box-shadow: 0 12px 25px rgba(31, 119, 180, 0.4);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
     }
     
-    .footer {
-        margin-top: 2rem;
-        color: #666;
-        font-size: 1rem;
+    .features {
+        background: #f8fafc;
+        padding: 2rem;
+        border-radius: 12px;
+        margin: 2rem 0;
     }
     
-    /* Hide Streamlit elements */
-    header[data-testid="stHeader"] {
-        display: none;
-    }
-    
-    .stApp > footer {
-        display: none;
-    }
-    
-    .stDeployButton {
-        display: none;
-    }
-    
-    #MainMenu {
-        display: none;
-    }
-    
-    @media (max-width: 768px) {
-        .title {
-            font-size: 2.2rem;
-        }
-        
-        .message {
-            font-size: 1.1rem;
-        }
-        
-        .content-wrapper {
-            padding: 2rem 1.5rem;
-        }
+    .feature-item {
+        margin: 1rem 0;
+        padding: 0.5rem;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Main content with 16:9 ratio
-st.markdown('<div class="fullscreen-container">', unsafe_allow_html=True)
-st.markdown('<div class="content-wrapper">', unsafe_allow_html=True)
+# Asosiy sahifa
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-# Title
-st.markdown('<h1 class="title">🚀 IqroAI New Version</h1>', unsafe_allow_html=True)
+# Sarlavha
+st.markdown('<h1 class="title">🚀 IqroAI</h1>', unsafe_allow_html=True)
+st.markdown('<h2 class="subtitle">Yangi Versiya Taqdim Etildi!</h2>', unsafe_allow_html=True)
 
-# Message
-st.markdown('''
-<div class="message">
-    <p>To try the new version of IqroAI, please visit the following page:</p>
+# Tavsif
+st.markdown("""
+<div class="description">
+IqroAI ning yangi va yaxshilangan versiyasini sinab ko'rish uchun quyidagi sahifaga tashrif buyuring. 
+Yangi imkoniyatlar va yaxshilanishlar sizni kutmoqda!
 </div>
-''', unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# Link button
-st.markdown('''
-<div style="text-align: center;">
-    <a href="https://iqroai-web-wd5a2.ondigitalocean.app/" target="_blank" class="link-button">
-        Visit IqroAI New Version
+# Xususiyatlar
+st.markdown("""
+<div class="features">
+    <h3 style="color: #1e3a8a; text-align: center; margin-bottom: 1.5rem;">🌟 Yangi Imkoniyatlar</h3>
+    <div class="feature-item">✨ Yaxshilangan foydalanuvchi interfeysi</div>
+    <div class="feature-item">🚀 Tezroq ishlash va javob berish</div>
+    <div class="feature-item">🔧 Yangi funksiyalar va vositalar</div>
+    <div class="feature-item">📊 Yaxshilangan tahlil imkoniyatlari</div>
+</div>
+""", unsafe_allow_html=True)
+
+# Link tugmasi
+target_url = "https://iqroai-web-wd5a2.ondigitalocean.app/"
+
+st.markdown(f"""
+<div style="text-align: center; margin: 3rem 0;">
+    <a href="{target_url}" target="_blank" class="link-button">
+        🔗 IqroAI Yangi Versiyasini Sinab Ko'ring
     </a>
 </div>
-''', unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# Alternative using Streamlit's built-in link button
+# Qo'shimcha ma'lumot
+st.markdown("""
+<div style="text-align: center; margin-top: 3rem; color: #6b7280;">
+    <p>Agar yuqoridagi tugma ishlamasa, quyidagi linkni to'g'ridan-to'g'ri brauzeringizga nusxalang:</p>
+    <code style="background: #f3f4f6; padding: 0.5rem; border-radius: 6px;">
+        https://iqroai-web-wd5a2.ondigitalocean.app/
+    </code>
+</div>
+""", unsafe_allow_html=True)
+
+# Streamlit tugmasi (zaxira variant)
 st.markdown("---")
-st.markdown("### Or click the button below:")
-
 col1, col2, col3 = st.columns([1, 2, 1])
+
 with col2:
-    if st.button("🌐 Go to IqroAI", type="primary", use_container_width=True):
-        st.markdown('''
-        <script>
-            window.open('https://iqroai-web-wd5a2.ondigitalocean.app/', '_blank');
-        </script>
-        ''', unsafe_allow_html=True)
+    if st.button("🚀 IqroAI ga O'tish", use_container_width=True, type="primary"):
+        st.markdown(f'<meta http-equiv="refresh" content="0; url={target_url}">', unsafe_allow_html=True)
+        js = f"window.open('{target_url}')"
+        st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
+        st.success("IqroAI sahifasi yangi oynada ochilmoqda...")
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown('''
-<div class="footer">
-    <p>Thank you for using IqroAI! 🙏</p>
+st.markdown("""
+<div style="text-align: center; margin-top: 4rem; padding: 2rem; background: #f1f5f9; border-radius: 12px;">
+    <p style="color: #475569; margin: 0;">
+        💡 <strong>IqroAI</strong> - Sun'iy intellekt yordamida ta'lim va o'rganish
+    </p>
 </div>
-''', unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)  # Close content-wrapper
-st.markdown('</div>', unsafe_allow_html=True)  # Close fullscreen-container
-
-# Add some spacing
-st.markdown("<br><br>", unsafe_allow_html=True)
-
-# Add some spacing
-st.markdown("<br><br>", unsafe_allow_html=True)
+""", unsafe_allow_html=True)
