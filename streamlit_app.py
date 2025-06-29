@@ -149,144 +149,95 @@
 #             delta=growth,
 #             delta_color=delta_color
 #         )
-
-
 import streamlit as st
-import webbrowser
 
-# Sahifa konfiguratsiyasi
+# Page configuration
 st.set_page_config(
-    page_title="IqroAI Yangi Versiya",
-    page_icon="🚀",
+    page_title="IqroAI",
+    page_icon="📚",
     layout="centered"
 )
 
-# CSS stillar
+# Custom CSS for minimal styling
 st.markdown("""
 <style>
-    .main-container {
+    .main-header {
         text-align: center;
-        padding: 2rem;
-    }
-    
-    .title {
-        color: #1e3a8a;
-        font-size: 3rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    
-    .subtitle {
-        color: #475569;
-        font-size: 1.5rem;
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: 300;
         margin-bottom: 2rem;
     }
     
     .description {
-        color: #64748b;
-        font-size: 1.2rem;
-        margin-bottom: 3rem;
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 1.1rem;
         line-height: 1.6;
+        margin-bottom: 3rem;
     }
     
-    .link-button {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        text-decoration: none;
-        font-size: 1.3rem;
-        font-weight: bold;
-        display: inline-block;
-        transition: all 0.3s ease;
-        margin: 1rem;
-    }
-    
-    .link-button:hover {
-        background: linear-gradient(135deg, #2563eb, #1e40af);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-    }
-    
-    .features {
-        background: #f8fafc;
-        padding: 2rem;
-        border-radius: 12px;
+    .link-container {
+        text-align: center;
         margin: 2rem 0;
     }
     
-    .feature-item {
-        margin: 1rem 0;
-        padding: 0.5rem;
+    .custom-link {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+    }
+    
+    .custom-link:hover {
+        background-color: #2980b9;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .footer {
+        text-align: center;
+        color: #bdc3c7;
+        font-size: 0.9rem;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ecf0f1;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Asosiy sahifa
-st.markdown('<div class="main-container">', unsafe_allow_html=True)
+# Main content
+st.markdown('<h1 class="main-header">IqroAI</h1>', unsafe_allow_html=True)
 
-# Sarlavha
-st.markdown('<h1 class="title">🚀 IqroAI</h1>', unsafe_allow_html=True)
-st.markdown('<h2 class="subtitle">Yangi Versiya Taqdim Etildi!</h2>', unsafe_allow_html=True)
-
-# Tavsif
 st.markdown("""
-<div class="description">
-IqroAI ning yangi va yaxshilangan versiyasini sinab ko'rish uchun quyidagi sahifaga tashrif buyuring. 
-Yangi imkoniyatlar va yaxshilanishlar sizni kutmoqda!
-</div>
+<p class="description">
+To try the new version of IqroAI, please visit the following page:
+</p>
 """, unsafe_allow_html=True)
 
-# Xususiyatlar
+# Link to the new version
 st.markdown("""
-<div class="features">
-    <h3 style="color: #1e3a8a; text-align: center; margin-bottom: 1.5rem;">🌟 Yangi Imkoniyatlar</h3>
-    <div class="feature-item">✨ Yaxshilangan foydalanuvchi interfeysi</div>
-    <div class="feature-item">🚀 Tezroq ishlash va javob berish</div>
-    <div class="feature-item">🔧 Yangi funksiyalar va vositalar</div>
-    <div class="feature-item">📊 Yaxshilangan tahlil imkoniyatlari</div>
-</div>
-""", unsafe_allow_html=True)
-
-# Link tugmasi
-target_url = "https://iqroai-web-wd5a2.ondigitalocean.app/"
-
-st.markdown(f"""
-<div style="text-align: center; margin: 3rem 0;">
-    <a href="{target_url}" target="_blank" class="link-button">
-        🔗 IqroAI Yangi Versiyasini Sinab Ko'ring
+<div class="link-container">
+    <a href="https://iqroai-web-wd5a2.ondigitalocean.app/" target="_blank" class="custom-link">
+        Visit IqroAI New Version
     </a>
 </div>
 """, unsafe_allow_html=True)
 
-# Qo'shimcha ma'lumot
+# Additional information
 st.markdown("""
-<div style="text-align: center; margin-top: 3rem; color: #6b7280;">
-    <p>Agar yuqoridagi tugma ishlamasa, quyidagi linkni to'g'ridan-to'g'ri brauzeringizga nusxalang:</p>
-    <code style="background: #f3f4f6; padding: 0.5rem; border-radius: 6px;">
-        https://iqroai-web-wd5a2.ondigitalocean.app/
-    </code>
-</div>
+<p class="description">
+Experience the enhanced features and improved interface of IqroAI's latest update.
+</p>
 """, unsafe_allow_html=True)
-
-# Streamlit tugmasi (zaxira variant)
-st.markdown("---")
-col1, col2, col3 = st.columns([1, 2, 1])
-
-with col2:
-    if st.button("🚀 IqroAI ga O'tish", use_container_width=True, type="primary"):
-        st.markdown(f'<meta http-equiv="refresh" content="0; url={target_url}">', unsafe_allow_html=True)
-        js = f"window.open('{target_url}')"
-        st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
-        st.success("IqroAI sahifasi yangi oynada ochilmoqda...")
-
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
 st.markdown("""
-<div style="text-align: center; margin-top: 4rem; padding: 2rem; background: #f1f5f9; border-radius: 12px;">
-    <p style="color: #475569; margin: 0;">
-        💡 <strong>IqroAI</strong> - Sun'iy intellekt yordamida ta'lim va o'rganish
-    </p>
+<div class="footer">
+    <p>Thank you for using IqroAI</p>
 </div>
 """, unsafe_allow_html=True)
